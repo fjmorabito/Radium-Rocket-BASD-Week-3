@@ -1,23 +1,180 @@
-.main-content {
+@media only screen and (min-width: 600px) {
+  .hamburger-menu {
+    display: none;
+  }
+
+  .navbar-container {
     display: flex;
+  }
+
+  .main-content {
     flex-direction: row;
-    width: 100%;
-    height: 80%;
-}
-section {
-  background: chocolate;
-  width: 70%;
-  height: 100%;
+    flex-wrap: wrap;
+  }
+
+  .main-news-content {
+    width: 62%;
+  }
+
+  .second-aside {
+    margin-top: 0px;
+    width: 28%;
+  }
+
+  .news-card {
+    flex-direction: column;
+  }
+
+  .img-container {
+    width: 80%;
+  }
+
+  .card-content {
+    width: 90%;
+  }
+
+  .second-aside {
+    justify-content: flex-start;
+    margin-left: 10px;
+    padding-top: 0px;
+  }
+
+  .article-content {
+    flex-direction: column;
+  }
+
+  .article-img {
+    width: 80%;
+    margin-bottom: 4px;
+  }
+
+  .article-title {
+    text-align: center;
+  }
 }
 
-aside {
-  background: cornsilk;
-  width: 15%;
-  height: 100%;
+@media only screen and (min-width: 750px) {
+  .logo {
+    font-size: 45px;
+  }
+
+  .sub-logo {
+    font-size: 30px;
+  }
+
+  .navbar-items-container a,
+  .github-link {
+    font-size: 18px;
+  }
+
+  .main-news-title {
+    font-size: 25px;
+  }
+
+  .img-container {
+    width: 90%;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-date {
+    font-size: 13px;
+  }
+
+  .card-info {
+    font-size: 15px;
+  }
+
+  .aside-title {
+    font-size: 20px;
+  }
+
+  .footer-info {
+    font-size: 18px;
+  }
 }
 
-footer {
-  background: darkblue;
-  width: 100%;
-  height: 20%;
+@media only screen and (min-width: 950px) {
+  .main-news-content {
+    width: 60%;
+  }
+
+  .first-aside-horizontal {
+    width: 15%;
+  }
+
+  .second-aside {
+    margin-top: 0px;
+    width: 20%;
+  }
+
+  .first-aside-horizontal {
+    display: none;
+  }
+
+  .first-aside-vertical {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .logo {
+    font-size: 55px;
+  }
+
+  .sub-logo {
+    font-size: 40px;
+  }
+
+  .navbar-items-container a,
+  .github-link {
+    font-size: 20px;
+    padding: 6px;
+    margin: 0 10px;
+  }
+
+  nav a:hover,
+  .github-link:hover {
+    border: none;
+    margin: 2px 12px;
+    font-weight: 800;
+    color: var(--color-5);
+  }
+
+  .main-news-title {
+    margin-top: 10px;
+    font-size: 35px;
+  }
+
+  .main-content-img {
+    min-width: 100%;
+    max-width: none;
+  }
+
+  .img-container {
+    margin-top: 15px;
+    width: 90%;
+  }
+
+  .card-title {
+    font-size: 25px;
+  }
+
+  .card-date {
+    font-size: 18px;
+  }
+
+  .card-info {
+    font-size: 20px;
+  }
+
+  .aside-title {
+    font-size: 28px;
+  }
+
+  .article-title {
+    font-size: 20px;
+  }
 }
