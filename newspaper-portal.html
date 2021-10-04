@@ -1,24 +1,27 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Glass news web portal</title>
+    <title>GG Well Played</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
   </head>
   <body>
     <header class="header-container">
       <div class="logo-container">
-        <span class="logo"> Sunrise news </span>
+        <span class="logo"> GG Well Played </span>
+        <div class="sub-logo">Your daily dose of geek news</div>
       </div>
-      <div class="Navbar-container">
-        <nav class="first-navbar-content">
+      <nav class="hamburger-menu">☰</nav>
+      <div class="navbar-container">
+        <nav class="navbar-items-container">
           <a href="">Main Page</a>
           <a href="">About Us</a>
           <a href="">Contact</a>
-          <a href="">Want to work with us?</a>
         </nav>
-        <nav class="second-navbar-content">
+        <nav class="navbar-items-container">
           <a href="">Twitter</a>
           <a href="">Facebook</a>
           <a href="">Log In</a>
@@ -26,42 +29,164 @@
       </div>
     </header>
     <div class="main-content">
-      <aside class="first-aside">
-        <div class="info-container">
-          <span class="aside-title">Headlines</span>
-          <span class="date">
-            <span class="day-date">Tuesday</span>
-            11/05/2021
-          </span>
-        </div>
+      <aside class="first-aside-horizontal">
+        <img
+          src="./assets/ad-horizontal-1a.jpg"
+          alt="gorilla-horizontal.jpg"
+          class="ad-image-horizontal"
+        />
+        <img
+          src="./assets/ad-horizontal-2.jpg"
+          alt="tuenti-horizontal.jpg"
+          class="ad-image-horizontal"
+        />
+      </aside>
+      <aside class="first-aside-vertical">
+        <img
+          src="./assets/ad-vertical-1a.jpg"
+          alt="gorilla-horizontal.jpg"
+          class="ad-image-vertical"
+        />
+        <img
+          src="./assets/ad-vertical-2.jpg"
+          alt="tuenti-horizontal.jpg"
+          class="ad-image-vertical"
+        />
       </aside>
       <section class="main-news-content">
+        <h2 class="main-news-title">Trending news</h2>
         <div class="news-card">
-          <img src="img-card" />
+          <a href="" class="img-container">
+            <img
+              src="./assets/dota.png"
+              alt="dota.png"
+              class="main-content-img"
+            />
+          </a>
           <div class="card-content">
             <div class="title-date-container">
-              <span class="card-title"
-                >Hays allocates $4.4M for air purifiers in fight against
-                COVID-19</span
-              >
+              <a href="" class="card-title">
+                Valve refunds tickets for Dota 2 International just days before
+                event
+              </a>
               <span class="card-date">3:00 p.m. 10/4/2021</span>
             </div>
-            <span class="card-info"
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-              sed impedit quam corrupti, saepe reprehenderit ducimus cupiditate
-              illum, consequuntur iusto libero nesciunt similique asperiores,
-              repudiandae quo at enim error! Labore.</span
-            >
+            <span class="card-info">
+              This year's The International 2021, the Dota 2 world
+              championships, will be held without an audience.
+            </span>
+          </div>
+        </div>
+        <div class="news-card">
+          <a href="" class="img-container">
+            <img
+              src="./assets/blizzard.jpg"
+              alt="dota.png"
+              class="main-content-img"
+            />
+          </a>
+          <div class="card-content">
+            <div class="title-date-container">
+              <a href="" class="card-title">
+                The creator of Ethereum got into crypto because Blizzard nerfed
+                his character
+              </a>
+              <span class="card-date">9:00 p.m. 10/4/2021</span>
+            </div>
+            <span class="card-info">
+              "I happily played World of Warcraft during 2007-2010," Buterin
+              writes in his bio, "but one day Blizzard removed the damage
+              component from my beloved warlock's Siphon Life spell.
+            </span>
+          </div>
+        </div>
+        <div class="news-card">
+          <a href="" class="img-container">
+            <img
+              src="./assets/new-world.jpg"
+              alt="dota.png"
+              class="main-content-img"
+            />
+          </a>
+          <div class="card-content">
+            <div class="title-date-container">
+              <a href="" class="card-title">
+                Full New World servers will no longer allow character creation
+              </a>
+              <span class="card-date">10:00 a.m. 10/4/2021</span>
+            </div>
+            <span class="card-info">
+              As MMO players flock to Amazon Game Studios' New World player
+              numbers blow up, Amazon has taken the measure of stopping new
+              character creation on full servers.
+            </span>
           </div>
         </div>
       </section>
       <aside class="second-aside">
-        This is where are the other links of interett articles
+        <h3 class="aside-title">Other articles of interest</h3>
+        <div class="article-content">
+          <img src="./assets/noctua.jpg" alt="noctua.jpg" class="article-img" />
+          <a href="" class="article-title">
+            The Asus X Noctua RTX 3070 is exactly what I wanted it to be: so
+            brown
+          </a>
+        </div>
+        <div class="article-content">
+          <img
+            src="./assets/harley-quinn.jpg"
+            alt="Harley.jpg"
+            class="article-img"
+          />
+          <a href="" class="article-title">
+            Harley Quinn's beach uniform in The Suicide Squad was inspired by
+            her Injustice 2 outfit
+          </a>
+        </div>
+        <div class="article-content">
+          <img src="./assets/chrome.jpg" alt="chrome.jpg" class="article-img" />
+          <a href="" class="article-title">
+            Big changes coming to Chrome may kill ad blockers
+          </a>
+        </div>
+        <div class="article-content">
+          <img
+            src="./assets/motorcycle.jpg"
+            alt="motorcycle.jpg"
+            class="article-img"
+          />
+          <a href="" class="article-title">
+            This footage from Ride 4 looks so realistic it fooled the internet
+          </a>
+        </div>
+        <div class="article-content">
+          <img src="./assets/intel.jpg" alt="intel.jpg" class="article-img" />
+          <a href="" class="article-title">
+            Intel's new brain chip uses its first 7nm silicon
+          </a>
+        </div>
+        <div class="article-content">
+          <img
+            src="./assets/football.jpg"
+            alt="football.jpg"
+            class="article-img"
+          />
+          <a href="" class="article-title">
+            eFootball and its weirdass faces is the worst-reviewed game in
+            Steam’s history
+          </a>
+        </div>
       </aside>
     </div>
-    <div class="categories">
-      This is where are the other articles divided in categories
-    </div>
-    <footer>This is the footer</footer>
+    <footer class="footer-container">
+      <div class="first-footer-container">
+        <span class="footer-info">Made by Morabito Federico</span>
+        <span class="footer-info">Radium Rocket Software Developer 2021</span>
+        <span class="footer-info">© 2020 Morabito Company</span>
+      </div>
+      <a href="https://github.com/fjmorabito" class="github-link">
+        GITHUB AUTHOR
+      </a>
+    </footer>
   </body>
 </html>
