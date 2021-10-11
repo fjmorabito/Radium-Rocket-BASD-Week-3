@@ -3,8 +3,21 @@
     display: none;
   }
 
+  .logo {
+    font-size: 45px;
+  }
+
+  .sub-logo {
+    font-size: 30px;
+  }
+
   .navbar-container {
     display: flex;
+  }
+
+  .navbar-items-container a,
+  .github-link {
+    font-size: 18px;
   }
 
   .main-content {
@@ -14,6 +27,10 @@
 
   .main-news-content {
     width: 62%;
+  }
+
+  .main-news-title {
+    font-size: 25px;
   }
 
   .second-aside {
@@ -26,11 +43,23 @@
   }
 
   .img-container {
-    width: 80%;
+    width: 90%;
   }
 
   .card-content {
     width: 90%;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-date {
+    font-size: 13px;
+  }
+
+  .card-info {
+    font-size: 15px;
   }
 
   .second-aside {
@@ -51,41 +80,6 @@
   .article-title {
     text-align: center;
   }
-}
-
-@media only screen and (min-width: 750px) {
-  .logo {
-    font-size: 45px;
-  }
-
-  .sub-logo {
-    font-size: 30px;
-  }
-
-  .navbar-items-container a,
-  .github-link {
-    font-size: 18px;
-  }
-
-  .main-news-title {
-    font-size: 25px;
-  }
-
-  .img-container {
-    width: 90%;
-  }
-
-  .card-title {
-    font-size: 18px;
-  }
-
-  .card-date {
-    font-size: 13px;
-  }
-
-  .card-info {
-    font-size: 15px;
-  }
 
   .aside-title {
     font-size: 20px;
@@ -102,7 +96,11 @@
   }
 
   .first-aside-horizontal {
-    width: 15%;
+    display: none;
+  }
+
+  .first-aside-vertical {
+    display: flex;
   }
 
   .second-aside {
@@ -110,16 +108,6 @@
     width: 20%;
   }
 
-  .first-aside-horizontal {
-    display: none;
-  }
-
-  .first-aside-vertical {
-    display: flex;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
   .logo {
     font-size: 55px;
   }

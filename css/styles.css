@@ -14,7 +14,6 @@ body {
 
 .header-container {
   width: 90%;
-  height: auto;
   margin: 20px auto;
   padding: 10px 0;
   display: flex;
@@ -97,7 +96,6 @@ nav a:hover,
   flex-direction: column;
   flex-wrap: nowrap;
   width: 90%;
-  height: auto;
   margin: 15px auto;
   border-radius: 5px;
 }
@@ -123,7 +121,6 @@ nav a:hover,
   flex-direction: row;
   align-items: center;
   width: 95%;
-  height: auto;
   margin: 10px auto;
   padding: 5px;
   border-radius: 10px;
@@ -148,7 +145,6 @@ nav a:hover,
   max-height: 100%;
   max-width: 100%;
   border: 2px solid var(--color-5);
-  height: auto;
 }
 
 .card-content {
@@ -308,5 +304,3 @@ nav a:hover,
   text-transform: uppercase;
   margin: 0 10px 0 10px;
 }
-
-/* Tablet screen code */
