@@ -14,7 +14,7 @@ Using javascript
 
 ## Link to Github pages to visualize the demo of the subscriber file:
 
-**https://fjmorabito.github.io/Radium-Rocket-BASD-Week-3/newspaper-portal.html**
+**https://fjmorabito.github.io/Radium-Rocket-BASD-Week-3/subscriber.html**
 
 
 ## Installation
