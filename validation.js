@@ -386,7 +386,7 @@ window.onload = function () {
 			alertWarning = 0;
 		} else {
 			var httpUrlFirstPart = 'https://curso-dev-2021.herokuapp.com/newsletter?';
-			var queryParamsName = ['name=', 'emaile=', 'password=', 'repeatPassword=', 'age=', 'phoneNumber=', 'adress=', 'city=', 'postalCode=', 'dni='];
+			var queryParamsName = ['name=', 'email=', 'password=', 'repeatPassword=', 'age=', 'phoneNumber=', 'adress=', 'city=', 'postalCode=', 'dni='];
 			var queryParams = [];
 			for (var i = 0; i < 9; i++) {
 				queryParams.push(queryParamsName[i] + inputsData[i].value)
