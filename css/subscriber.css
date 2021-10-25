@@ -202,3 +202,64 @@ nav a:hover,
   text-transform: uppercase;
   margin: 0 10px 0 10px;
 }
+
+/*Modal styles*/
+
+.modal-container {
+  visibility: hidden;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: var(--color-4);
+  margin: 25% auto;
+  padding: 10px 15px 35px 15px;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-close-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  margin: 10px 15px 10px;
+  width: max-content;
+  color: #b1b1b1;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.modal-close-btn:hover {
+  color: var(--color-1);
+  cursor: pointer;
+}
+
+.modal-title-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.modal-message {
+  margin-top: 15px;
+  color: var(--color-6);
+  text-align: center;
+  font-size: 15px;
+}
