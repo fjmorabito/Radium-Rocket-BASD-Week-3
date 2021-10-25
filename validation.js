@@ -1,33 +1,114 @@
 window.onload = function () {
 
-	//Validate if the variable has equal or more defined length
+	// Validate if the variable has equal or more defined length
 
 	function validateMinimumLenght(val, leng) {
-		if (val.length >= leng) {
-			return 1;
-		} else {
-			return 0;
-		}
+		return val.length >= leng;
 	};
 
 	// Search for a particular character a in the variable
 
 	function lookForCharacter(variable, a) {
-		if (variable.indexOf(a) !== -1) {
-			return 1;
-		} else {
-			return 0;
-		}
+		return variable.indexOf(a) !== -1;
 	};
 
 	// Search for a match of the regex in the param value
 
 	function lookForRegex(value, regex) {
 		if (value.match(regex)) {
-			return 1;
+			return true;
 		} else {
-			return 0;
+			return false;
 		}
+	};
+
+	// Set localStorage items
+
+	function fillLocalStorage() {
+		localStorage.setItem('name', inputsData[0].value);
+		localStorage.setItem('email', inputsData[1].value);
+		localStorage.setItem('password', inputsData[2].value);
+		localStorage.setItem('repeatedPassword', inputsData[3].value);
+		localStorage.setItem('age', inputsData[4].value);
+		localStorage.setItem('phoneNumber', inputsData[5].value);
+		localStorage.setItem('address', inputsData[6].value);
+		localStorage.setItem('city', inputsData[7].value);
+		localStorage.setItem('postalCode', inputsData[8].value);
+		localStorage.setItem('dni', inputsData[9].value);
+		return;
+	};
+
+	// Get data from localStorage
+
+	function getLocalStorage() {
+		inputsData[0].value = localStorage.getItem('name');
+		inputsData[1].value = localStorage.getItem('email');
+		inputsData[2].value = localStorage.getItem('password');
+		inputsData[3].value = localStorage.getItem('repeatedPassword');
+		inputsData[4].value = localStorage.getItem('age');
+		inputsData[5].value = localStorage.getItem('phoneNumber');
+		inputsData[6].value = localStorage.getItem('address');
+		inputsData[7].value = localStorage.getItem('city');
+		inputsData[8].value = localStorage.getItem('postalCode');
+		inputsData[9].value = localStorage.getItem('dni');
+		return;
+	};
+
+	// Functions to handle modal visibility 
+
+	function openModal() {
+		modalContainer.style.visibility = 'visible';
+		return;
+	};
+
+	function closeModal() {
+		modalContainer.style.visibility = 'hidden';
+		return;
+	};
+
+	function clickOutside(e) {
+		if (e.target === modalContainer) {
+			modalContainer.style.visibility = 'hidden';
+			return;
+		}
+	};
+
+	// Sets fetch response to modal message
+
+	function modalMessageShown(content) {
+		console.log(content)
+		if (content.status) {
+			modalMessage.innerHTML = 'STATUS ' + content.status + ' ' + content.statusText;
+			return;
+		} else {
+			modalMessage.innerHTML = 'The subscription has been succesfull. ' + `${JSON.stringify(content, null, 2)}`;
+			return;
+		}
+	};
+
+	// Fetch function to handle different response.status
+
+	function requestForm(url) {
+		fetch(url)
+			.then(res => {
+				if (res.status === 200) {
+					modalTitle.innerHTML = 'subscription succesfully requested';
+					fillLocalStorage();
+					return res.json();
+				} else {
+					modalTitle.innerHTML = 'subscription failed on request';
+					return res;
+				}
+			})
+			.then(data => {
+				modalMessageShown(data);
+				openModal();
+			})
+			.catch(error => {
+				modalTitle.innerHTML = 'FETCH FAILED';
+				modalMessage.innerHTML = error;
+				openModal();
+			});
 	};
 
 	// General commands
@@ -66,6 +147,10 @@ window.onload = function () {
 		}
 	};
 
+	// Call function to change input values from localStorage
+
+	getLocalStorage();
+
 	// Changing message of the greetings
 
 	var message = document.getElementsByClassName('greetings')[0];
@@ -83,7 +168,7 @@ window.onload = function () {
 		var gotBlank = lookForCharacter(name, ' ');
 		var doesItHaveANumber = lookForRegex(name, numbersRegex);
 		var doesItHaveASimbol = lookForRegex(name, symbolsRegex);
-		if (result === 1 && gotBlank === 1 && doesItHaveANumber !== 1 && doesItHaveASimbol === 0) {
+		if (result && gotBlank && !doesItHaveANumber && !doesItHaveASimbol) {
 			nameWarning = 0;
 			return;
 		} else {
@@ -100,7 +185,7 @@ window.onload = function () {
 		var email = inputsData[1].value;
 		var gotDotCom = lookForRegex(email, dotComRegex);
 		var gotEmailChar = lookForRegex(email, mailRegex);
-		if (gotDotCom === 1 && gotEmailChar === 1) {
+		if (gotDotCom && gotEmailChar) {
 			emailWarning = 0;
 			return;
 		} else {
@@ -119,7 +204,7 @@ window.onload = function () {
 		var isItANumber = pass % 1;
 		var doesItHaveANumber = lookForRegex(pass, numbersRegex);
 		var doesItHaveASimbol = lookForRegex(pass, symbolsRegex);
-		if (isNaN(isItANumber) && passLength === 1 && doesItHaveANumber === 1 && doesItHaveASimbol === 0) {
+		if (isNaN(isItANumber) && passLength && doesItHaveANumber && !doesItHaveASimbol) {
 			passwordWarning = 0;
 			return;
 		} else {
@@ -136,7 +221,7 @@ window.onload = function () {
 		var pass = inputsData[2].value;
 		var rPass = inputsData[3].value;
 		var isSamePass = lookForCharacter(rPass, pass);
-		if (isSamePass === 1 && pass.length === rPass.length) {
+		if (isSamePass && pass.length === rPass.length) {
 			rePasswordWarning = 0;
 			return;
 		} else {
@@ -152,7 +237,7 @@ window.onload = function () {
 	function validateAge() {
 		var age = inputsData[4].value;
 		var isItANumber = age % 1;
-		if (age >= 18 && isItANumber === 0) {
+		if (age >= 18 && !isItANumber) {
 			ageWarning = 0;
 			return;
 		} else {
@@ -169,7 +254,7 @@ window.onload = function () {
 		var phoneNumber = inputsData[5].value;
 		var isItANumber = phoneNumber % 1;
 		var result = validateMinimumLenght(phoneNumber, 7);
-		if (isItANumber === 0 && result === 1) {
+		if (!isItANumber && result) {
 			phoneWarning = 0;
 			return;
 		} else {
@@ -188,7 +273,7 @@ window.onload = function () {
 		var doesItHaveANumber = lookForRegex(address, numbersRegex);
 		var doesItHaveALetter = lookForRegex(address, letterRegex);
 		var gotBlank = lookForCharacter(address, ' ');
-		if (addressLengthOk === 1 && doesItHaveALetter === 1 && doesItHaveANumber === 1 && gotBlank === 1) {
+		if (addressLengthOk && doesItHaveALetter && doesItHaveANumber && gotBlank) {
 			addressWarning = 0;
 			return;
 		} else {
@@ -204,7 +289,7 @@ window.onload = function () {
 	function validateCity() {
 		var city = inputsData[7].value;
 		var cityLength = validateMinimumLenght(city, 3);
-		if (cityLength === 1) {
+		if (cityLength) {
 			cityWarning = 0;
 			return;
 		} else {
@@ -220,7 +305,7 @@ window.onload = function () {
 	function validatePostal() {
 		var postalCode = inputsData[8].value;
 		var result = validateMinimumLenght(postalCode, 3);
-		if (result === 1) {
+		if (result) {
 			postalWarning = 0;
 			return;
 		} else {
@@ -238,7 +323,7 @@ window.onload = function () {
 		var dniLength1 = validateMinimumLenght(dni, 7);
 		var dniLength2 = validateMinimumLenght(dni, 9);
 		var dniIsNumber = dni % 1;
-		if (dniLength1 + dniLength2 === 1 & dniIsNumber === 0) {
+		if (dniLength1 & !dniLength2 & dniIsNumber === 0) {
 			dniWarning = 0;
 			return;
 		} else {
@@ -256,7 +341,6 @@ window.onload = function () {
 
 	function submitVal() {
 		var messageAlert = [];
-		var dataOkValues = ['The next information is going to submit: '];
 		if (nameWarning === 1) {
 			messageAlert.push('Name: ' + errors[0].innerHTML);
 			alertWarning = 1;
@@ -301,10 +385,25 @@ window.onload = function () {
 			alert('Submit failed. Wrong data entry in the category of: \n' + messageAlert.join('\n'));
 			alertWarning = 0;
 		} else {
-			for (var i = 0; i < inputsData.length; i++) {
-				dataOkValues.push(inputsData[i].value);
-			}
-			alert(dataOkValues.join('\n'));
-		}
-	}
+			var httpUrlFirstPart = 'https://curso-dev-2021.herokuapp.com/newsletter?';
+			var queryParamsName = ['name=', 'emaile=', 'password=', 'repeatPassword=', 'age=', 'phoneNumber=', 'adress=', 'city=', 'postalCode=', 'dni='];
+			var queryParams = [];
+			for (var i = 0; i < 9; i++) {
+				queryParams.push(queryParamsName[i] + inputsData[i].value)
+			};
+			var queryParamsComplete = queryParams.join('&');
+			var httpUrl = httpUrlFirstPart + queryParamsComplete;
+			requestForm(httpUrl);
+		};
+	};
+
+	// Modal part
+
+	var modalContainer = document.getElementsByClassName('modal-container')[0];
+	var closeBtn = document.getElementsByClassName('modal-close-btn')[0];
+	var modalMessage = document.getElementsByClassName('modal-message')[0];
+	var modalTitle = document.getElementsByClassName('modal-title')[0];
+	closeBtn.addEventListener('click', closeModal);
+	window.addEventListener('click', clickOutside);
+
 };
