@@ -220,27 +220,30 @@ nav a:hover,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
-  background-color: var(--color-4);
   margin: 25% auto;
   padding: 10px 15px 35px 15px;
   width: 60%;
+  background-color: var(--color-4);
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-close-btn-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .modal-close-btn {
   display: flex;
   justify-content: flex-end;
-  padding: 5px;
   margin: 10px 15px 10px;
   width: max-content;
-  color: #b1b1b1;
+  color: var(--color-1);
   font-size: 30px;
   font-weight: 600;
 }
 
 .modal-close-btn:hover {
-  color: var(--color-1);
+  color: var(--color-6);
   cursor: pointer;
 }
 
@@ -252,14 +255,15 @@ nav a:hover,
 }
 
 .modal-title {
-  text-align: center;
-  font-size: 30px;
+  font-size: 25px;
+  font-weight: 600;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .modal-message {
   margin-top: 15px;
   color: var(--color-6);
   text-align: center;
-  font-size: 15px;
+  font-size: 17px;
 }
